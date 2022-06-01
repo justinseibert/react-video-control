@@ -45,7 +45,7 @@ const SliderComponent: React.FC<Props> = ({ duration, currentTime, onSeek, color
         .on('start', (data: any) => {
           setRadius(radiusActive)
           setPosition(data.x * dpi)
-          dragStart.current = dragEnd.current
+          dragStart.current = dragEnd.current = 0
         })
         .on('drag', (data: any) => {
           setPosition(data.x * dpi)
