@@ -9,7 +9,7 @@
     "slider",
     "video"
   ],
-  "version": "0.1.1",
+  "version": "0.1.2",
   "private": false,
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",

@@ -63,9 +63,11 @@ const SliderComponent: React.FC<Props> = ({ duration, currentTime, onSeek, color
 
   useEffect(() => {
     initializeCanvas()
-    // update position during regulat playback
+    // update position during regular playback
     if (dragStart.current !== dragEnd.current || dragStart.current < 0) {
       setPosition((currentTime / duration) * width)
+      // reset drag state
+      dragStart.current = dragEnd.current = -1
     }
   }, [initializeCanvas, currentTime, duration, width])
 
@@ -113,8 +115,6 @@ const SliderComponent: React.FC<Props> = ({ duration, currentTime, onSeek, color
     // only trigger seek when drag is complete
     if (dragStart.current !== dragEnd.current) {
       onSeek((position / width) * duration)
-      // make sure it only happens once after a drag
-      dragStart.current = dragEnd.current
     }
   }, [ctxRef, position, width, radius, duration, onSeek, color])
 
